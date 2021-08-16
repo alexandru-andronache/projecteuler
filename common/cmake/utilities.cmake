@@ -1,0 +1,7 @@
+function(pad_number_with_0 original_number total_size number)
+    string(LENGTH ${original_number} s)
+    MATH(EXPR s "${total_size}-${s}")
+    string(REPEAT "0" ${s} pad)
+    string(APPEND pad ${original_number})
+    set(${number} ${pad} PARENT_SCOPE)
+endfunction()
