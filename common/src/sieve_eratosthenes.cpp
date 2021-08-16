@@ -1,0 +1,41 @@
+#include "sieve_eratosthenes.h"
+#include <numeric>
+
+namespace math {
+    SieveEratosthenes::SieveEratosthenes(int size) {
+        sieve = std::vector<bool>(size, true);
+        calculate();
+    }
+
+    void SieveEratosthenes::calculate() {
+        sieve[0] = sieve[1] = false;
+        for (int i = 2; i < sieve.size(); ++i) {
+            if (sieve[i]) {
+                for (int j = i + i; j < sieve.size(); j += i) {
+                    sieve[j] = false;
+                }
+            }
+        }
+    }
+
+    unsigned long long SieveEratosthenes::sumOfPrimes() {
+        unsigned long long sum = 0;
+        for (int i = 2; i < sieve.size(); ++i) {
+            sum += i * sieve[i];
+        }
+        return sum;
+    }
+
+    int SieveEratosthenes::getPrime(int n) {
+        int k = 0;
+        int index = 1;
+        while (k < n && index < sieve.size()) {
+            index++;
+            if (sieve[index]) {
+                k++;
+            }
+        }
+
+        return index;
+    }
+}
