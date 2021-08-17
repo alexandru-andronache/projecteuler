@@ -3,7 +3,7 @@
 namespace math {
     class SieveEratosthenes {
     public:
-        SieveEratosthenes(int size);
+        explicit SieveEratosthenes(int size);
 
         /*
          * sum of the primes smaller then size
