@@ -38,4 +38,17 @@ namespace math {
 
         return index;
     }
+
+    int SieveEratosthenes::divisorCount(int n) {
+        int count = 1;
+        for (int i = 2; i <= n; ++i) {
+            int p = 0;
+            while (sieve[i] && n % i == 0) {
+                n = n / i;
+                p++;
+            }
+            count *= p + 1;
+        }
+        return count;
+    }
 }

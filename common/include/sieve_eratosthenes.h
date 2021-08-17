@@ -15,6 +15,11 @@ namespace math {
          */
         int getPrime(int n);
 
+        /*
+         * returns the number of divisors of n
+         */
+        int divisorCount(int n);
+
     private:
         void calculate();
         std::vector<bool> sieve;
