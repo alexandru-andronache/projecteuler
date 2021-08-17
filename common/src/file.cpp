@@ -4,6 +4,17 @@
 
 namespace file {
 
+    std::vector<std::string> readFileAsArrayOfString(std::string path) {
+        std::ifstream f(path);
+        std::string line;
+        std::vector<std::string> output;
+        while (std::getline(f, line)) {
+            output.push_back(line);
+        }
+        f.close();
+        return output;
+    }
+
     std::vector<std::vector<int>> readFileAsArrayOfArrayOfInt(std::string_view path) {
         std::ifstream f(path);
         std::string line;
