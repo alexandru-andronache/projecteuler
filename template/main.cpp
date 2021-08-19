@@ -2,6 +2,7 @@
 
 namespace problem_XXX {
     int solve(int n) {
+        return 0;
     }
 }
 
