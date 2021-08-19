@@ -51,4 +51,18 @@ namespace math {
         }
         return count;
     }
+
+    int SieveEratosthenes::sumOfProperDivisors(int n) {
+        int prod = 1;
+        int originalNumber = n;
+        for (int i = 2; i <= n; ++i) {
+            int p = 0;
+            while (sieve[i] && n % i == 0) {
+                n = n / i;
+                p++;
+            }
+            prod *= (std::pow(i, p + 1) - 1) / (i - 1);
+        }
+        return prod - originalNumber;
+    }
 }

@@ -35,3 +35,9 @@ TEST_F(SieveEratosthenesTest, sieve_eratosthenes_divisor_count_big_value) {
     SieveEratosthenes se(1000000);
     ASSERT_EQ(se.divisorCount(76576500), 576);
 }
+
+TEST_F(SieveEratosthenesTest, sieve_eratosthenes_sum_of_proper_divisors) {
+    SieveEratosthenes se(1000);
+    ASSERT_EQ(se.sumOfProperDivisors(220), 284);
+    ASSERT_EQ(se.sumOfProperDivisors(284), 220);
+}

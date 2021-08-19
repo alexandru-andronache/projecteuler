@@ -20,6 +20,11 @@ namespace math {
          */
         int divisorCount(int n);
 
+        /*
+         * returns the sum of the proper divisors
+         */
+        int sumOfProperDivisors(int n);
+
     private:
         void calculate();
         std::vector<bool> sieve;
