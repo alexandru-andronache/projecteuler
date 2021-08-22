@@ -41,3 +41,11 @@ TEST_F(SieveEratosthenesTest, sieve_eratosthenes_sum_of_proper_divisors) {
     ASSERT_EQ(se.sumOfProperDivisors(220), 284);
     ASSERT_EQ(se.sumOfProperDivisors(284), 220);
 }
+
+TEST_F(SieveEratosthenesTest, sieve_eratosthenes_is_prime) {
+    SieveEratosthenes se(1000);
+    ASSERT_EQ(se.isPrime(100), false);
+    ASSERT_EQ(se.isPrime(99), false);
+    ASSERT_EQ(se.isPrime(23), true);
+    ASSERT_EQ(se.isPrime(37), true);
+}

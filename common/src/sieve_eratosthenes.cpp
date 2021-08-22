@@ -65,4 +65,11 @@ namespace math {
         }
         return prod - originalNumber;
     }
+
+    bool SieveEratosthenes::isPrime(int n) {
+        if (n <= 0 || n >= sieve.size()) {
+            return false;
+        }
+        return sieve[n];
+    }
 }

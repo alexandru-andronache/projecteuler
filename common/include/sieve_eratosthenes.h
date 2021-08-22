@@ -25,6 +25,11 @@ namespace math {
          */
         int sumOfProperDivisors(int n);
 
+        /*
+         * returns true if n is prime
+         */
+        bool isPrime(int n);
+
     private:
         void calculate();
         std::vector<bool> sieve;
