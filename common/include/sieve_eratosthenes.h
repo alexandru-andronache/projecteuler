@@ -28,7 +28,7 @@ namespace math {
         /*
          * returns true if n is prime
          */
-        bool isPrime(int n);
+        bool isPrime(int n) const;
 
     private:
         void calculate();

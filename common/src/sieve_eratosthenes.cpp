@@ -66,7 +66,7 @@ namespace math {
         return prod - originalNumber;
     }
 
-    bool SieveEratosthenes::isPrime(int n) {
+    bool SieveEratosthenes::isPrime(int n) const {
         if (n <= 0 || n >= sieve.size()) {
             return false;
         }
