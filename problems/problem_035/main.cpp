@@ -9,15 +9,12 @@ namespace problem_035 {
         for (int i = 2; i < n; ++i) {
             int multiply = std::pow(10, std::to_string(i).length() - 1);
             int k = i;
-            bool prime = false;
-            if (se.isPrime(k)) {
-                prime = true;
-                do {
-                    k = k / 10 + (k % 10) * multiply;
-                    prime = prime && se.isPrime(k);
-                }
-                while (k != i && se.isPrime(k));
+            bool prime = se.isPrime(k);
+            do {
+                k = k / 10 + (k % 10) * multiply;
+                prime = prime && se.isPrime(k);
             }
+            while (k != i && prime);
             nr += prime;
         }
         return nr;
