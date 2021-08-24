@@ -6,5 +6,7 @@ using namespace math;
 TEST_F(MathTest, is_prime) {
     ASSERT_EQ(isPrime(75), false);
     ASSERT_EQ(isPrime(33), false);
+    ASSERT_EQ(isPrime(37), true);
+    ASSERT_EQ(isPrime(41), true);
 }
 
