@@ -22,20 +22,17 @@ namespace problem_036 {
         }
         return max;
     }
+
     int solve() {
         int sum = 0;
         for (int i = 1; i < 1000000; ++i) {
             if (isPalindrom(i)) {
                 std::bitset<32> bits(32);
                 bits = i;
-                std::string o = bits.to_string();
-                std::reverse(o.begin(), o.end());
-                o = o.substr(0, findBitMax(bits) + 1);
-                std::string p = o;
-                std::reverse(p.begin(), p.end());
-                if (p == o) {
-                    sum += i;
-                }
+                std::string str = bits.to_string().substr(bits.size() - findBitMax(bits) - 1);
+                std::string rev = str;
+                std::reverse(rev.begin(), rev.end());
+                sum = sum + i * (str == rev);
             }
         }
         return sum;
