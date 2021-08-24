@@ -7,6 +7,6 @@ namespace problem_030 {
     }
 
     TEST_F(Test_problem_030, solve_real_test) {
-        ASSERT_EQ(solve(5), 0);
+        ASSERT_EQ(solve(5), 443839);
     }
 }
