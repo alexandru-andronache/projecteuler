@@ -10,6 +10,12 @@ namespace big_number {
         }
     }
 
+    BigNumber::BigNumber(const std::vector<int>& nr) {
+        for (const auto& n : nr) {
+            number.push_back(n);
+        }
+    }
+
     BigNumber BigNumber::operator*=(const int& other) {
         int p = 0;
         for (size_t i = 0; i < number.size(); ++i) {
@@ -78,5 +84,17 @@ namespace big_number {
 
     size_t BigNumber::sumOfNumbers() {
         return std::accumulate(number.begin(), number.end(), 0);
+    }
+
+    bool BigNumber::isPalindrom() {
+        int li = 0, ls = number.size() - 1;
+        while (li <= ls) {
+            if (number[li] != number[ls]) {
+                return false;
+            }
+            li++;
+            ls--;
+        }
+        return true;
     }
 }

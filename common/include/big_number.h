@@ -4,6 +4,7 @@ namespace big_number {
     class BigNumber {
     public:
         explicit BigNumber(int k);
+        BigNumber(const std::vector<int>& nr);
         BigNumber operator*=(const int& other);
 
         BigNumber operator+=(const BigNumber &other);
@@ -13,7 +14,8 @@ namespace big_number {
 
         size_t size();
         size_t sumOfNumbers();
-    private:
+        bool isPalindrom();
+
         std::vector<int> number;
     };
 }
