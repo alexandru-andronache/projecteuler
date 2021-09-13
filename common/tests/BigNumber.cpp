@@ -30,3 +30,12 @@ TEST_F(BigNumberTest, add_number_different_sizes_2) {
     ASSERT_EQ(test, sum);
 }
 
+TEST_F(BigNumberTest, multiply_with_int) {
+    BigNumber test(123);
+    int test2 = 12;
+    BigNumber prod(1476);
+    test *= test2;
+
+    ASSERT_EQ(test, prod);
+}
+

@@ -1,4 +1,5 @@
 #include "big_number.h"
+#include <numeric>
 #include <iostream>
 
 namespace big_number {
@@ -9,7 +10,21 @@ namespace big_number {
         }
     }
 
-    BigNumber BigNumber::operator+=(BigNumber &other) {
+    BigNumber BigNumber::operator*=(const int& other) {
+        int p = 0;
+        for (size_t i = 0; i < number.size(); ++i) {
+            int k = number[i] * other + p;
+            number[i] = k % 10;
+            p = k / 10;
+        }
+        while (p > 0) {
+            number.push_back(p % 10);
+            p = p / 10;
+        }
+        return *this;
+    }
+
+    BigNumber BigNumber::operator+=(const BigNumber &other) {
         int p = 0;
         size_t size = std::min(number.size(), other.number.size());
         for (size_t i = 0; i < size; ++i) {
@@ -59,5 +74,9 @@ namespace big_number {
 
     size_t BigNumber::size() {
         return number.size();
+    }
+
+    size_t BigNumber::sumOfNumbers() {
+        return std::accumulate(number.begin(), number.end(), 0);
     }
 }
