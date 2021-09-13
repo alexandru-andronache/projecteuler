@@ -9,9 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
 include(${COMMON_SOURCES}/cmake/gtest.cmake)
 include(${COMMON_SOURCES}/cmake/utilities.cmake)
-
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/add_target.cmake)
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/add_problem.cmake)
+include(${COMMON_SOURCES}/cmake/add_problem.cmake)
 
 file(GLOB utils_src "common/src/*.cpp")
 file(GLOB tests_src "common/tests/*.cpp")
