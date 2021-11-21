@@ -16,11 +16,11 @@ namespace big_number {
         }
     }
 
-    BigNumber BigNumber::operator*=(const int& other) {
-        int p = 0;
-        for (size_t i = 0; i < number.size(); ++i) {
-            int k = number[i] * other + p;
-            number[i] = k % 10;
+    BigNumber BigNumber::operator*=(const long long& other) {
+        long long p = 0;
+        for (int& nr : number) {
+            long long k = nr * other + p;
+            nr = k % 10;
             p = k / 10;
         }
         while (p > 0) {
@@ -28,6 +28,18 @@ namespace big_number {
             p = p / 10;
         }
         return *this;
+    }
+
+    BigNumber operator*(const BigNumber& number, const long long& other) {
+        BigNumber temp = number;
+        temp *= other;
+        return temp;
+    }
+
+    BigNumber operator*(const long long& other, const BigNumber& number) {
+        BigNumber temp = number;
+        temp *= other;
+        return temp;
     }
 
     BigNumber BigNumber::operator+=(const BigNumber &other) {
@@ -59,6 +71,38 @@ namespace big_number {
         return *this;
     }
 
+    BigNumber operator+(const BigNumber& number1, const BigNumber& number2) {
+        std::vector<int> sum(std::min(number1.size(), number2.size()), 0);
+        int p = 0;
+        for (int i = 0; i < std::min(number1.size(), number2.size()); ++i) {
+            int s = number1.number[i] + number2.number[i] + p;
+            sum[i] = s % 10;
+            p = s / 10;
+        }
+
+        if (number1.size() > number2.size()) {
+            for (int i = number2.size(); i < number1.size(); ++i) {
+                int s = number1.number[i] + p;
+                sum.push_back(s % 10);
+                p = s / 10;
+            }
+        }
+        else {
+            for (int i = number1.size(); i < number2.size(); ++i) {
+                int s = number2.number[i] + p;
+                sum.push_back(s % 10);
+                p = s / 10;
+            }
+        }
+
+        while (p > 0) {
+            sum.push_back(p % 10);
+            p = p / 10;
+        }
+
+        return {sum};
+    }
+
     bool BigNumber::operator==(const BigNumber &other) const {
         if (number.size() != other.number.size()) {
             return false;
@@ -76,6 +120,10 @@ namespace big_number {
             std::cout << elem;
         });
         return stream;
+    }
+
+    size_t BigNumber::size() const {
+        return number.size();
     }
 
     size_t BigNumber::size() {

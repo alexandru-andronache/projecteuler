@@ -39,3 +39,20 @@ TEST_F(BigNumberTest, multiply_with_int) {
     ASSERT_EQ(test, prod);
 }
 
+TEST_F(BigNumberTest, multiply_with_int_with_normal_operator) {
+    BigNumber test(123);
+    int test2 = 12;
+    BigNumber prod(1476);
+    test = test * test2;
+
+    ASSERT_EQ(test, prod);
+}
+
+TEST_F(BigNumberTest, multiply_with_int_with_normal_operator_reverse) {
+    BigNumber test(123);
+    int test2 = 12;
+    BigNumber prod(1476);
+    test = test2 * test;
+
+    ASSERT_EQ(test, prod);
+}

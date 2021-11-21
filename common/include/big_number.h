@@ -5,13 +5,18 @@ namespace big_number {
     public:
         explicit BigNumber(int k);
         BigNumber(const std::vector<int>& nr);
-        BigNumber operator*=(const int& other);
+        BigNumber operator*=(const long long& other);
+        friend BigNumber operator*(const BigNumber& number, const long long& other);
+        friend BigNumber operator*(const long long& other, const BigNumber& number);
 
         BigNumber operator+=(const BigNumber &other);
+        friend BigNumber operator+(const BigNumber& number1, const BigNumber& number2);
+
         bool operator==(const BigNumber &other) const;
 
         friend std::ostream& operator<< (std::ostream& stream, const BigNumber& bigNumber);
 
+        size_t size() const;
         size_t size();
         size_t sumOfNumbers();
         bool isPalindrom();

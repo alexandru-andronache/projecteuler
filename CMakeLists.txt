@@ -15,7 +15,7 @@ file(GLOB utils_src "common/src/*.cpp")
 file(GLOB tests_src "common/tests/*.cpp")
 file(GLOB tests_include "common/tests/*.h")
 
-foreach(n RANGE 1 64)
+foreach(n RANGE 1 65)
         pad_number_with_0(${n} 3 n)
         add_problem(${n})
 endforeach()
