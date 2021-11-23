@@ -56,3 +56,12 @@ TEST_F(BigNumberTest, multiply_with_int_with_normal_operator_reverse) {
 
     ASSERT_EQ(test, prod);
 }
+
+TEST_F(BigNumberTest, multiply_big_numbers) {
+    BigNumber test(123);
+    BigNumber test2(1234);
+    BigNumber prod(151782);
+    test = test2 * test;
+
+    ASSERT_EQ(test, prod);
+}

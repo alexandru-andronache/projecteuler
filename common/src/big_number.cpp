@@ -42,6 +42,18 @@ namespace big_number {
         return temp;
     }
 
+    BigNumber operator*(const BigNumber& number1, const BigNumber& number2) {
+        BigNumber temp(0);
+        for (int i = 0; i < number1.size(); ++i) {
+            BigNumber n = number2 * number1.number[i];
+            for (int j = 0; j < i; ++j) {
+                n *= 10;
+            }
+            temp = temp + n;
+        }
+        return temp;
+    }
+
     BigNumber BigNumber::operator+=(const BigNumber &other) {
         int p = 0;
         size_t size = std::min(number.size(), other.number.size());
@@ -103,6 +115,13 @@ namespace big_number {
         return {sum};
     }
 
+    BigNumber operator+(const BigNumber& number1, const int& nr) {
+        BigNumber t = number1;
+        BigNumber t2(nr);
+        t += t2;
+        return t;
+    }
+
     bool BigNumber::operator==(const BigNumber &other) const {
         if (number.size() != other.number.size()) {
             return false;
@@ -113,6 +132,24 @@ namespace big_number {
             }
         }
         return true;
+    }
+
+    bool BigNumber::operator<(const BigNumber &other) const {
+        if (number.size() > other.size()) {
+            return false;
+        }
+        if (number.size() < other.size()) {
+            return true;
+        }
+        for (int i = number.size() - 1; i >= 0; --i) {
+            if (number[i] < other.number[i]) {
+                return true;
+            }
+            if (number[i] > other.number[i]) {
+                return false;
+            }
+        }
+        return false;
     }
 
     std::ostream& operator<< (std::ostream& stream, const BigNumber& bigNumber) {

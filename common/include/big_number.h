@@ -8,11 +8,14 @@ namespace big_number {
         BigNumber operator*=(const long long& other);
         friend BigNumber operator*(const BigNumber& number, const long long& other);
         friend BigNumber operator*(const long long& other, const BigNumber& number);
+        friend BigNumber operator*(const BigNumber& number1, const BigNumber& number2);
 
         BigNumber operator+=(const BigNumber &other);
         friend BigNumber operator+(const BigNumber& number1, const BigNumber& number2);
+        friend BigNumber operator+(const BigNumber& number1, const int& nr);
 
         bool operator==(const BigNumber &other) const;
+        bool operator<(const BigNumber &other) const;
 
         friend std::ostream& operator<< (std::ostream& stream, const BigNumber& bigNumber);
 
