@@ -15,10 +15,16 @@ file(GLOB utils_src "common/src/*.cpp")
 file(GLOB tests_src "common/tests/*.cpp")
 file(GLOB tests_include "common/tests/*.h")
 
-foreach(n RANGE 1 66)
+SET(MAX_PROBLEM 66)
+
+foreach(n RANGE 1 ${MAX_PROBLEM})
         pad_number_with_0(${n} 3 n)
         add_problem(${n})
 endforeach()
+
+add_set_of_problem(1 ${MAX_PROBLEM} "all.problems")
+
+add_set_of_problem(1 50 "problems.1.to.50")
 
 add_executable(${COMMON_TEST_NAME} ${tests_include} test.cpp ${tests_src} ${utils_src})
 
