@@ -3,7 +3,7 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES EP_PREFIX ${CMAKE_BINARY_DIR}/third_party)
 ExternalProject_Add(
         googletest_utilities
         GIT_REPOSITORY https://github.com/google/googletest
-        GIT_TAG release-1.10.0
+        GIT_TAG release-1.11.0
         TIMEOUT 10
         # Force separate output paths for debug and release builds to allow easy
         # identification of correct lib in subsequent TARGET_LINK_LIBRARIES commands

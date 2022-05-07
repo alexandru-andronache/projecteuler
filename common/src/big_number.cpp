@@ -17,15 +17,15 @@ namespace big_number {
     }
 
     BigNumber BigNumber::operator*=(const long long& other) {
-        long long p = 0;
+        long long carry = 0;
         for (int& nr : number) {
-            long long k = nr * other + p;
+            long long k = nr * other + carry;
             nr = k % 10;
-            p = k / 10;
+            carry = k / 10;
         }
-        while (p > 0) {
-            number.push_back(p % 10);
-            p = p / 10;
+        while (carry > 0) {
+            number.push_back(carry % 10);
+            carry = carry / 10;
         }
         return *this;
     }
