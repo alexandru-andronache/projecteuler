@@ -15,7 +15,7 @@ file(GLOB utils_src "common/src/*.cpp")
 file(GLOB tests_src "common/tests/*.cpp")
 file(GLOB tests_include "common/tests/*.h")
 
-SET(MAX_PROBLEM 67)
+SET(MAX_PROBLEM 69)
 
 foreach(n RANGE 1 ${MAX_PROBLEM})
         pad_number_with_0(${n} 3 n)

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.15)
+include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../common/cmake/add_problem.cmake)
+SET(NAME "problem.068")
+project(${NAME})
+problem()
